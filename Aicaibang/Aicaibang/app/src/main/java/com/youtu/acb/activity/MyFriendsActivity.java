@@ -43,6 +43,7 @@ public class MyFriendsActivity extends BaseActivity {
     private int mCurrentPage = 1;
     private boolean hasMore;
     private RecyclerView.LayoutManager mLayoutManager;
+    private TextView mNorecord;
 
 
     @Override
@@ -61,6 +62,7 @@ public class MyFriendsActivity extends BaseActivity {
 
         mTitleBar.getLayoutParams().height = Settings.TITLEBAR_HEIGHT;
         mList = (RecyclerView) findViewById(R.id.my_friend_recycler);
+        mNorecord = (TextView) findViewById(R.id.no_recorder);
 
         mLayoutManager = new LinearLayoutManager(MyFriendsActivity.this);
         mList.setLayoutManager(mLayoutManager);
@@ -184,6 +186,11 @@ public class MyFriendsActivity extends BaseActivity {
                             @Override
                             public void run() {
                                 mAdapter.notifyDataSetChanged();
+                                if (infos.size() > 0) {
+                                    mNorecord.setVisibility(View.INVISIBLE);
+                                } else {
+                                    mNorecord.setVisibility(View.VISIBLE);
+                                }
                             }
                         });
                     } else {

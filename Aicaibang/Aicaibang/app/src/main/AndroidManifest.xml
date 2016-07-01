@@ -156,7 +156,7 @@
         <activity
             android:name=".activity.AddInvestRecorderActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         />
         <activity android:name=".activity.EventsActivity" />
         <activity android:name=".activity.CheckCodeActivity" />
@@ -182,7 +182,8 @@
             android:theme="@style/Theme.AppCompat.Translucent"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.PicsActivity" />
-        <activity android:name=".activity.PlatSelActivity"></activity>
+        <activity android:name=".activity.PlatSelActivity" />
+        <activity android:name=".activity.AccountBookHisActivity" />
     </application>
 
 </manifest>

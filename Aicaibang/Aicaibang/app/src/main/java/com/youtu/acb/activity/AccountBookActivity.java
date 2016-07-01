@@ -1,6 +1,7 @@
 package com.youtu.acb.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import com.youtu.acb.entity.AccountInfo;
 import com.youtu.acb.util.CommonUtil;
 import com.youtu.acb.util.DaoUtil;
 import com.youtu.acb.util.OnSingleClickListener;
+import com.youtu.acb.util.StringUtil;
 
 import java.util.ArrayList;
 
@@ -44,6 +47,8 @@ public class AccountBookActivity extends BaseActivity {
     private boolean hasMore;
     private ArrayList<AccountBookInfo> mInfos = new ArrayList<>();
     private TextView mNum;
+    private LinearLayoutManager mLayoutManager;
+    private TextView noRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,16 +68,33 @@ public class AccountBookActivity extends BaseActivity {
         mTitleBar.getLayoutParams().height = Settings.TITLEBAR_HEIGHT;
         mTitleBar.setTitle("账本");
 
+        mTitleBar.getmRightPart().setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void doOnClick(View v) {
+                startActivity(new Intent(AccountBookActivity.this, AccountBookHisActivity.class));
+            }
+        });
+
         mRecycler = (RecyclerView) findViewById(R.id.account_book_recycler);
         mNote = (Button) findViewById(R.id.account_book_note);
         mNum = (TextView) findViewById(R.id.account_book_num);
 
-        mRecycler.setLayoutManager(new LinearLayoutManager(AccountBookActivity.this));
+        noRecord = (TextView) findViewById(R.id.no_recorder);
+
+        mLayoutManager = new LinearLayoutManager(AccountBookActivity.this);
+        mRecycler.setLayoutManager(mLayoutManager);
         mAdapter = new AccountBookAdapter();
         mRecycler.setAdapter(mAdapter);
 
         int divider20 = (int) (Settings.RATIO_HEIGHT * 20);
         mRecycler.addItemDecoration(new SpaceItemDecoration(divider20));
+
+        mNote.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void doOnClick(View v) {
+                startActivity(new Intent(AccountBookActivity.this, AddInvestRecorderActivity.class));
+            }
+        });
 
         getAccountBook();
 
@@ -102,7 +124,7 @@ public class AccountBookActivity extends BaseActivity {
                 holder.plat.setText("");
             }
 
-            holder.num.setText(info.amount + "");
+            holder.num.setText(StringUtil.FormatFloat(info.amount + ""));
 
             if (info.repay_name != null) {
                 holder.repay.setText(info.repay_name);
@@ -131,11 +153,45 @@ public class AccountBookActivity extends BaseActivity {
             } else {
                 holder.icon.setImageResource(R.drawable.a_book_edit);
             }
+
+            holder.titlePart.setOnClickListener(new TitleClickListener(position));
+
+
+            //判断当前列表所在位置，当到最后两项时就加载
+            int end = mLayoutManager.findLastVisibleItemPosition();
+            if (end > getItemCount() - 3 && end <= getItemCount() - 1) {
+                if (hasMore) {
+                    mCurrentPage++;
+                    getAccountBook();
+                }
+            }
         }
 
         @Override
         public int getItemCount() {
             return mInfos.size();
+        }
+
+        class TitleClickListener extends OnSingleClickListener {
+            int type;
+            String actid;
+            String acttype;
+
+            public TitleClickListener(int pos) {
+                this.type = mInfos.get(pos).type;
+                actid = mInfos.get(pos).activity_id + "";
+                acttype = mInfos.get(pos).activity_type + "";
+            }
+
+            @Override
+            public void doOnClick(View v) {
+                if (type == 2) {
+                    startActivity(new Intent(AccountBookActivity.this, AddInvestRecorderActivity.class));
+                } else {
+                    startActivity(new Intent(AccountBookActivity.this, ActDetailActivity.class).putExtra("actid", actid).putExtra("acttype", acttype));
+                }
+
+            }
         }
 
         class AccountBookVh extends RecyclerView.ViewHolder {
@@ -148,6 +204,7 @@ public class AccountBookActivity extends BaseActivity {
             TextView repay;
             TextView sdate;
             TextView ddate;
+            LinearLayout titlePart;
 
             public AccountBookVh(View itemView) {
                 super(itemView);
@@ -160,6 +217,7 @@ public class AccountBookActivity extends BaseActivity {
                 sdate = (TextView) itemView.findViewById(R.id.item_ab_start_date);
                 ddate = (TextView) itemView.findViewById(R.id.item_ab_dead_date);
                 icon = (ImageView) itemView.findViewById(R.id.item_ab_icon);
+                titlePart = (LinearLayout) itemView.findViewById(R.id.account_book_title_part);
 
             }
         }
@@ -208,8 +266,14 @@ public class AccountBookActivity extends BaseActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                mNum.setText(amount + "");
+                                mNum.setText(StringUtil.FormatFloat(amount + ""));
                                 mAdapter.notifyDataSetChanged();
+
+                                if (mInfos.size() > 0) {
+                                    noRecord.setVisibility(View.INVISIBLE);
+                                } else {
+                                    noRecord.setVisibility(View.VISIBLE);
+                                }
                             }
                         });
                     } else {

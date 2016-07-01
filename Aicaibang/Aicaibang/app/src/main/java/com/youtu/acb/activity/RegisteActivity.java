@@ -174,7 +174,7 @@ public class RegisteActivity extends BaseActivity {
     }
 
     private void checkBtnState() {
-        if (mPhoneNum.getEditText().getText().toString().trim().length() == 11 && mCheckCode.getEditText().getText().length() == 4) {
+        if (mPhoneNum.getEditText().getText().toString().replaceAll(" ", "").length() == 11 && mCheckCode.getEditText().getText().length() == 4) {
             mNextStep.setEnabled(true);
         } else {
             mNextStep.setEnabled(false);

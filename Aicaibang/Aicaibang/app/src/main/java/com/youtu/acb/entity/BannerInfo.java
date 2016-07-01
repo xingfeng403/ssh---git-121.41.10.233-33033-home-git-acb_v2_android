@@ -7,5 +7,6 @@ public class BannerInfo {
     public String title;
     public String img_src;
     public String link;
-    public String web;
+    public String type;
+    public String id;
 }

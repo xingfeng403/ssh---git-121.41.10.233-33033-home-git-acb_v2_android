@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.youtu.acb.R;
 import com.youtu.acb.common.Settings;
+import com.youtu.acb.interfaces.GetUserInfoFinishedListener;
 import com.youtu.acb.util.CommonUtil;
 import com.youtu.acb.util.DaoUtil;
 import com.youtu.acb.util.OnSingleClickListener;
@@ -137,7 +138,12 @@ public class AddBankcardActivity extends BaseActivity {
                             @Override
                             public void run() {
                                 Toast.makeText(mSelf, "添加成功", Toast.LENGTH_SHORT).show();
-                                AddBankcardActivity.this.finish();
+                                DaoUtil.getUserInfoFromServer(AddBankcardActivity.this, new GetUserInfoFinishedListener() {
+                                    @Override
+                                    public void doFinish(boolean success, String msg) {
+                                        AddBankcardActivity.this.finish();
+                                    }
+                                });
                             }
                         });
                     } else {

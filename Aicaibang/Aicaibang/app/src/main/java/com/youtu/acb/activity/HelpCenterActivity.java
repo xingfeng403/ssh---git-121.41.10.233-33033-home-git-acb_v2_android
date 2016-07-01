@@ -67,5 +67,14 @@ public class HelpCenterActivity extends BaseActivity {
         mWxClient.getLayoutParams().height = height90;
         mQQGroup.getLayoutParams().height = height90;
 
+        mCommonQues.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void doOnClick(View v) {
+
+                // 固定url 四不四集中到webactivity中处理呢－－。 可维护性
+                startActivity(new Intent(HelpCenterActivity.this, WebActivity.class).putExtra("title", "常见问题").putExtra("url", "http://www.youtuker.com/m/app/help.html"));
+            }
+        });
+
     }
 }

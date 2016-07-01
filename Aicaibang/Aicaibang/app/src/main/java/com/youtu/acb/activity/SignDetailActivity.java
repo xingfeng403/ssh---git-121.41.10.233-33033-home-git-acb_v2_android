@@ -80,7 +80,8 @@ public class SignDetailActivity extends AppCompatActivity {
             }
         });
 
-        getSignDataDetail();
+        if (!lock)
+            getSignDataDetail();
 
     }
 
@@ -162,8 +163,10 @@ public class SignDetailActivity extends AppCompatActivity {
     }
 
     private String errMsg;
+    boolean lock;
 
     private void getSignDataDetail() {
+        lock = true;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -183,11 +186,24 @@ public class SignDetailActivity extends AppCompatActivity {
                         int length = array.size();
 
                         if (result.getIntValue("sign") == 0) {
-                            mGotoSign.setVisibility(View.VISIBLE);
-                            mSignSucLayout.setVisibility(View.INVISIBLE);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mGotoSign.setVisibility(View.VISIBLE);
+                                    mSignSucLayout.setVisibility(View.INVISIBLE);
+                                }
+                            });
+
                         } else {
-                            mGotoSign.setVisibility(View.INVISIBLE);
-                            mSignSucLayout.setVisibility(View.VISIBLE);
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mGotoSign.setVisibility(View.INVISIBLE);
+                                    mSignSucLayout.setVisibility(View.VISIBLE);
+                                }
+                            });
+
                         }
 
                         mInfos.clear();
@@ -222,6 +238,8 @@ public class SignDetailActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+                lock = false;
             }
         }).start();
     }

@@ -95,6 +95,7 @@ public class MainActivity extends BaseActivity {
     private ImageCycleView mViewPager;
     private LinearLayout mHeader;
     private RecyclerView.LayoutManager mLayoutManager;
+    private FrameLayout mZixun;
 
 
     @Override
@@ -132,7 +133,14 @@ public class MainActivity extends BaseActivity {
         msgBall = findViewById(R.id.msg_ball);
         zixunBall = findViewById(R.id.zixun_ball);
         infoBall = findViewById(R.id.menu_ball);
+        mZixun = (FrameLayout) findViewById(R.id.main_content_url);
 
+        mZixun.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void doOnClick(View v) {
+                startActivity(new Intent(MainActivity.this, WebActivity.class).putExtra("title", "资讯").putExtra("url", "https://caijing.gongshidai.com/active/tlist"));
+            }
+        });
 
         mTitleBar.getLayoutParams().height = Settings.TITLEBAR_HEIGHT;
 
@@ -320,22 +328,17 @@ public class MainActivity extends BaseActivity {
 //                    gotoLoginPage();
 //                    return;
 //                }
-//
-//                if (info.getType() != null) {
-//                    if (info.getType().equals("app")) {
-//                        int[] startingLocation = new int[2];
-//                        imageView.getLocationOnScreen(startingLocation);
-//                        startingLocation[0] += imageView.getWidth() / 2;
-//                        CommonUtil.startUserProfileFromLocation(startingLocation, mActivity, StoreDetailNewActivity.class, info.getApp_id());
-//                        mActivity.overridePendingTransition(0, 0);
-//                    } else if (info.getType().equals("web")) {
-//                        if (info.getLink() != null && !info.getLink().equals("#")) {
-//                            startActivity(new Intent(mActivity, WebActivity.class).putExtra("title", true).putExtra("appid", info.getTitle()).putExtra("url", info.getLink()));
-//                        }
-//                    } else if (info.getType().equals("invite")) {
-//                        startActivity(new Intent(mActivity, MyInvitationActivity.class));
-//                    }
-//                }
+
+                if (info.link != null) {
+                    if (info.type.equals("app")) {
+                    } else if (info.type.equals("web")) {
+                        if (info.link != null && !info.link.equals("#")) {
+                            startActivity(new Intent(MainActivity.this, WebActivity.class).putExtra("title", true).putExtra("title", info.title).putExtra("url", info.link));
+                        }
+                    } else if (info.type.equals("invite")) {
+//                        startActivity(new Intent(MainActivity.this, MyInvitationActivity.class));
+                    }
+                }
             }
         });
     }
@@ -784,8 +787,8 @@ public class MainActivity extends BaseActivity {
                             }
                         });
 
-                        JSONArray array = resultObj.getJSONArray("bannerlist");
-                        JSONArray array2 = resultObj.getJSONArray("newslist");
+                        JSONArray array = resultObj.getJSONArray("bannerList");
+                        JSONArray array2 = resultObj.getJSONArray("newsList");
                         if (array != null) {
                             int length = array.size();
                             mBanners.clear();
@@ -796,7 +799,13 @@ public class MainActivity extends BaseActivity {
                             }
                         }
 
-                        initBanners();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                initBanners();
+                            }
+                        });
+
 
                         if (array2 != null) {
                             int length2 = array2.size();

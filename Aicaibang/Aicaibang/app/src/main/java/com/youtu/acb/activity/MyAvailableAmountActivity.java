@@ -225,6 +225,7 @@ public class MyAvailableAmountActivity extends BaseActivity {
                                 @Override
                                 public void run() {
                                     mAdapter.notifyDataSetChanged();
+                                    mNoRecorder.setVisibility(View.INVISIBLE);
                                 }
                             });
                         } else {
@@ -278,7 +279,13 @@ public class MyAvailableAmountActivity extends BaseActivity {
             }
         });
 
-        ok.setOnClickListener(new DirectListener(mSelf, AddBankcardActivity.class));
+        ok.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void doOnClick(View v) {
+                startActivity(new Intent(mSelf, AddBankcardActivity.class));
+                mDialog.dismiss();
+            }
+        });
     }
 
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/ab_his_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.youtu.acb.Views.Titlebar>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ab_his_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

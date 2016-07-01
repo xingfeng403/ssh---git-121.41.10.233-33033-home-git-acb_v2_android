@@ -43,6 +43,7 @@ public class RecommendAwardActivity extends BaseActivity {
     private ArrayList<RecommendInfo> mInfos = new ArrayList<>();
     private RecoomedAdapter mAdapter;
     private String mUid;
+    private TextView noRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class RecommendAwardActivity extends BaseActivity {
         mRecContinue = (Button) findViewById(R.id.rec_continue);
         mGetMore = (Button) findViewById(R.id.rec_look_more);
         mNum = (TextView) findViewById(R.id.rec_num);
+        noRecord = (TextView) findViewById(R.id.no_recorder);
 
         mAdapter = new RecoomedAdapter();
         mRecycler.setLayoutManager(new LinearLayoutManager(RecommendAwardActivity.this));
@@ -163,6 +165,12 @@ public class RecommendAwardActivity extends BaseActivity {
                             public void run() {
                                 mNum.setText("" + total);
                                 mAdapter.notifyDataSetChanged();
+
+                                if (mInfos.size() > 0) {
+                                    noRecord.setVisibility(View.INVISIBLE);
+                                } else {
+                                    noRecord.setVisibility(View.VISIBLE);
+                                }
                             }
                         });
 

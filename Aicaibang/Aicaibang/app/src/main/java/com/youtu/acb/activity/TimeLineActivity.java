@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.gif.GifDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.youtu.acb.R;
 import com.youtu.acb.Views.CircleImageView;
 import com.youtu.acb.Views.SpaceItemDecoration;
@@ -37,6 +42,9 @@ import com.youtu.acb.util.OnSingleClickListener;
 
 import java.util.ArrayList;
 
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.PtrHandler;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -51,17 +59,23 @@ public class TimeLineActivity extends BaseActivity {
     private FrameLayout mBack;
     private RecyclerView mIssues;
     private Button mFabiao;
-    private int mIssueId = 181;
+    private String mIssueId;
     private Context mSelf = TimeLineActivity.this;
     private ArrayList<TimeLineInfo> mList = new ArrayList<>();
     private TimeLineAdapter mAdapter;
     private int mGridViewItemWidth;
     private TimeLineActivity mActivity = this;
+    private TextView noRecord;
+    private PtrFrameLayout ptrFrame;
+    private int mCurrentPage = 1;
+    private long mStartTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_line);
+
+        mIssueId = getIntent().getStringExtra("merid");
 
         mTitleBar = (RelativeLayout) findViewById(R.id.time_line_titlebar);
         mTitleBar.getLayoutParams().height = Settings.TITLEBAR_HEIGHT;
@@ -80,6 +94,9 @@ public class TimeLineActivity extends BaseActivity {
         mFabiao = (Button) findViewById(R.id.assign_issue);
         mFabiao.getLayoutParams().height = (int) (Settings.RATIO_HEIGHT * 96);
 
+        noRecord = (TextView) findViewById(R.id.no_recorder);
+        ptrFrame = (PtrFrameLayout) findViewById(R.id.timeline_ptr_frame);
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         mIssues.setLayoutManager(mLayoutManager);
         mAdapter = new TimeLineAdapter();
@@ -94,6 +111,31 @@ public class TimeLineActivity extends BaseActivity {
 
         int spacePixels = DensityUtils.dp2px(mSelf, 10);
         mIssues.addItemDecoration(new SpaceItemDecoration(spacePixels));
+
+
+
+        LinearLayout header = new LinearLayout(this);
+        header.setGravity(Gravity.CENTER);
+        TextView tv = new TextView(this);
+        tv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        tv.setText("Refreshing...");
+        header.addView(tv);
+        ptrFrame.setHeaderView(header);
+
+        ptrFrame.setPtrHandler(new PtrHandler() {
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                mStartTime = System.currentTimeMillis();
+                mCurrentPage = 1;
+                getIssues();
+            }
+
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
+            }
+
+        });
 
         getIssues();
     }
@@ -130,6 +172,12 @@ public class TimeLineActivity extends BaseActivity {
                                 @Override
                                 public void run() {
                                     mAdapter.notifyDataSetChanged();
+
+                                    if (mList.size() > 0) {
+                                        noRecord.setVisibility(View.INVISIBLE);
+                                    } else {
+                                        noRecord.setVisibility(View.VISIBLE);
+                                    }
                                 }
                             });
                         }
@@ -145,6 +193,23 @@ public class TimeLineActivity extends BaseActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+                    long currentTime = System.currentTimeMillis();
+                    mStartTime = currentTime - mStartTime;
+
+                    if (mStartTime < 2000) {
+                        try {
+                            Thread.sleep(2000 - mStartTime);
+                        } catch (InterruptedException e) {
+                        }
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (ptrFrame.isRefreshing())
+                                ptrFrame.refreshComplete();
+                        }
+                    });
             }
         }).start();
     }
@@ -192,8 +257,6 @@ public class TimeLineActivity extends BaseActivity {
                 holder.zan.setImageResource(R.drawable.timeline_yizan);
             }
 
-            holder.zan.setOnClickListener(new ZanCLickListener(position));
-
             holder.mContainer.removeAllViews();
             if (info.activity != null && info.activity.length > 0) {
                 int length = info.activity.length;
@@ -226,15 +289,17 @@ public class TimeLineActivity extends BaseActivity {
                 holder.gridview.setVisibility(View.GONE);
             }
 
-            holder.head.setOnClickListener(new ComemtClickListener(info.id));
-            holder.commentLayout.setOnClickListener(new ComemtClickListener(info.id));
-            holder.mContent.setOnClickListener(new ComemtClickListener(info.id));
+            holder.head.setOnClickListener(new ComemtClickListener(position));
+            holder.commentLayout.setOnClickListener(new ComemtClickListener(position));
+            holder.mContent.setOnClickListener(new ComemtClickListener(position));
             holder.shareLayout.setOnClickListener(new OnSingleClickListener() {
                 @Override
                 public void doOnClick(View v) {
                     DialogUtil.showShareDialog(mActivity, mActivity);
                 }
             });
+
+            holder.zanLayout.setOnClickListener(new ZanCLickListener(position));
         }
 
         @Override
@@ -255,6 +320,7 @@ public class TimeLineActivity extends BaseActivity {
             public ImageView zan;
             public LinearLayout commentLayout;
             public LinearLayout shareLayout;
+            public LinearLayout zanLayout;
 
             public TimeLineViewHolder(View itemView) {
                 super(itemView);
@@ -271,6 +337,7 @@ public class TimeLineActivity extends BaseActivity {
                 zan = (ImageView) itemView.findViewById(R.id.item_tl_zan);
                 commentLayout = (LinearLayout) itemView.findViewById(R.id.item_tl_comment_layout);
                 shareLayout = (LinearLayout) itemView.findViewById(R.id.item_tl_share_layout);
+                zanLayout = (LinearLayout) itemView.findViewById(R.id.item_tl_zan_layout);
             }
         }
     }
@@ -308,21 +375,22 @@ public class TimeLineActivity extends BaseActivity {
     }
 
     class ComemtClickListener extends OnSingleClickListener {
-        long id;
+        int position;
 
-        public ComemtClickListener(long id){
-            this.id = id;
+        public ComemtClickListener(int position){
+            this.position = position;
         }
 
         @Override
         public void doOnClick(View v) {
-            startActivity(new Intent(TimeLineActivity.this, OneTopicActivity.class).putExtra("replyid", id));
+            TimeLineInfo info = mList.get(position);
+            mApplication.mInfo = info;
+            startActivity(new Intent(TimeLineActivity.this, OneTopicActivity.class).putExtra("replyid", info.id));
         }
     }
 
 
     int clickPos;
-    boolean lock;
     class ZanCLickListener extends  OnSingleClickListener {
 
         public ZanCLickListener(int position) {
@@ -331,12 +399,7 @@ public class TimeLineActivity extends BaseActivity {
 
         @Override
         public void doOnClick(View v) {
-
-            if (!lock) {
-                lock = true;
-
                 doZan(mList.get(clickPos).id + "");
-            }
         }
     }
 
@@ -390,7 +453,6 @@ public class TimeLineActivity extends BaseActivity {
                     e.printStackTrace();
                 }
 
-                lock = false;
             }
         }).start();
     }

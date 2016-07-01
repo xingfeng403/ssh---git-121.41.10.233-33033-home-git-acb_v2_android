@@ -88,8 +88,9 @@ public class LabelsLayout extends LinearLayout {
             paramLin2.setMargins(0, margin10, 0, 0);
             lin2.setLayoutParams(paramLin2);
 
+            TextView tv;
             while (count + 1 < size && line1length + labels[count + 1].length() <= maxLength) {
-                TextView tv = new TextView(mContext);
+                tv = new TextView(mContext);
 
                 tv.setLayoutParams(params);
                 tv.setPadding(padding10, 0, padding10, 0);
@@ -105,8 +106,21 @@ public class LabelsLayout extends LinearLayout {
                 count++;
             }
 
+            tv = new TextView(mContext);
+
+            tv.setLayoutParams(params);
+            tv.setPadding(padding10, 0, padding10, 0);
+            tv.setText(labels[count]);
+            tv.setTextSize(textsize);
+            tv.setTextColor(Color.parseColor("#fbb4b1"));
+            tv.setGravity(Gravity.CENTER);
+            tv.setBackgroundResource(R.drawable.shape_orange_round_stroke);
+
+            lin1.addView(tv);
+            count++;
+
             while (count + 1 < size && line2length + labels[count + 1].length() <= maxLength) {
-                TextView tv = new TextView(mContext);
+                tv = new TextView(mContext);
                 tv.setLayoutParams(params);
                 tv.setPadding(padding10, 0, padding10, 0);
                 tv.setText(labels[count]);
@@ -121,8 +135,23 @@ public class LabelsLayout extends LinearLayout {
                 count++;
             }
 
-            addView(lin1);
-            addView(lin2);
+            if (count + 1 < size) {
+                tv = new TextView(mContext);
+
+                tv.setLayoutParams(params);
+                tv.setPadding(padding10, 0, padding10, 0);
+                tv.setText(labels[count]);
+                tv.setTextSize(textsize);
+                tv.setTextColor(Color.parseColor("#fbb4b1"));
+                tv.setGravity(Gravity.CENTER);
+                tv.setBackgroundResource(R.drawable.shape_orange_round_stroke);
+
+                lin2.addView(tv);
+                count++;
+
+                addView(lin1);
+                addView(lin2);
+            }
 
         } else {
             LinearLayout lin1 = new LinearLayout(mContext);
@@ -144,6 +173,18 @@ public class LabelsLayout extends LinearLayout {
                 line1length += labels[count].length();
                 count++;
             }
+
+            TextView tv = new TextView(mContext);
+            tv.setLayoutParams(params);
+            tv.setPadding(padding10, 0, padding10, 0);
+            tv.setText(labels[count]);
+            tv.setTextColor(Color.parseColor("#fbb4b1"));
+            tv.setTextSize(textsize);
+            tv.setGravity(Gravity.CENTER);
+            tv.setBackgroundResource(R.drawable.shape_orange_round_stroke);
+
+            lin1.addView(tv);
+            count++;
 
             addView(lin1);
         }

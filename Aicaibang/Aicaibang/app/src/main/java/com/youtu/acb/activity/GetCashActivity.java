@@ -291,7 +291,7 @@ public class GetCashActivity extends BaseActivity {
                 Glide.with(GetCashActivity.this).load(info.icon).into(mImage1);
                 mImage1Sel.setImageResource(R.drawable.way_sel);
                 Glide.with(GetCashActivity.this).load(bankcardInfo.icon).into(mImage2);
-                mImage1Sel.setImageResource(R.drawable.way_unsel);
+                mImage2Sel.setImageResource(R.drawable.way_unsel);
 
                 if (weixinInfo.name != null) {
                     mWeixin.setText(weixinInfo.name);

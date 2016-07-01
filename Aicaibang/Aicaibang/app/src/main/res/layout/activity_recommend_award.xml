@@ -43,20 +43,20 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/danwei"
                 android:layout_centerHorizontal="true"
-                android:gravity="bottom"
                 android:layout_marginBottom="7dp"
+                android:gravity="bottom"
                 android:paddingBottom="0dp"
                 android:text="0"
                 android:textColor="#fe6a67"
                 android:textSize="42dp" />
 
             <TextView
-                android:layout_marginBottom="22dp"
-                android:layout_above="@+id/rec_continue"
                 android:id="@+id/danwei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/rec_continue"
                 android:layout_centerHorizontal="true"
+                android:layout_marginBottom="22dp"
                 android:text="累计奖励金币(枚)"
                 android:textColor="#6d6e76"
                 android:textSize="17dp" />
@@ -98,12 +98,29 @@
 
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rec_list"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.0"
-        android:scrollbars="vertical" />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rec_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/no_recorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="暂无记录"
+            android:textColor="@color/black666"
+            android:textSize="16dp"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/rec_look_more"
@@ -112,9 +129,9 @@
         android:background="@null"
         android:minHeight="50dp"
         android:text="查看所有好友"
-        android:visibility="invisible"
         android:textColor="#92a6e7"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        android:visibility="invisible" />
 
 
 </LinearLayout>

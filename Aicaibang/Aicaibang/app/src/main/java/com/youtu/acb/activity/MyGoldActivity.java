@@ -208,6 +208,7 @@ public class MyGoldActivity extends BaseActivity {
                                 @Override
                                 public void run() {
                                     mAdapter.notifyDataSetChanged();
+                                    mNoRecorder.setVisibility(View.INVISIBLE);
                                 }
                             });
                         } else {

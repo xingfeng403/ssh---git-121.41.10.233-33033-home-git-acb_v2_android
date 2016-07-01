@@ -1,20 +1,27 @@
 package com.youtu.acb.activity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -77,7 +84,7 @@ public class PublishTopicActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_topic);
 
-        mGridViewItemWidth = 100;
+        mGridViewItemWidth = Settings.DISPLAY_WIDTH / 4;
 
         // 初始化从相册相机选择图片类
         mUpdatePhoto = new UpdatePhoto(this);
@@ -128,6 +135,14 @@ public class PublishTopicActivity extends BaseActivity {
 
         mAdapter = new PtAdapter();
         mGridView.setAdapter(mAdapter);
+
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                getDialog(i);
+            }
+        });
+
 
     }
 
@@ -386,5 +401,58 @@ public class PublishTopicActivity extends BaseActivity {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         return new ByteArrayInputStream(baos.toByteArray());
+    }
+
+
+    // 从本地获取照片
+    Dialog mAlert;
+    public void getDialog(final int pos) {
+        mAlert = new Dialog(PublishTopicActivity.this);
+        mAlert.setContentView(R.layout.camera_dialog);
+        mAlert.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        WindowManager.LayoutParams params = mAlert.getWindow().getAttributes();
+        params.gravity = Gravity.CENTER;
+        mAlert.getWindow().setAttributes(params);
+
+        try {
+            int dividerID = getResources().getIdentifier("android:id/titleDivider", null, null);
+            View divider = mAlert.findViewById(dividerID);
+            divider.setBackgroundColor(Color.TRANSPARENT);
+        } catch (Exception e) { //上面的代码，是用来去除Holo主题的蓝色线条
+            e.printStackTrace();
+        }
+
+        TextView photograph = (TextView) mAlert.findViewById(R.id.photo);
+        TextView album = (TextView) mAlert.findViewById(R.id.camera);
+        TextView cancel = (TextView) mAlert.findViewById(R.id.cancle);
+        photograph.setText("删除");
+        album.setText("预览");
+
+        album.setOnClickListener(new OnSingleClickListener() {
+
+            @Override
+            public void doOnClick(View v) {
+                ninePics.remove(pos);
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+
+        photograph.setOnClickListener(new OnSingleClickListener() {
+
+            @Override
+            public void doOnClick(View v) {
+
+            }
+        });
+
+        cancel.setOnClickListener(new OnSingleClickListener() {
+
+            @Override
+            public void doOnClick(View v) {
+                mAlert.dismiss();
+                mAlert = null;
+            }
+        });
+        mAlert.show();
     }
 }

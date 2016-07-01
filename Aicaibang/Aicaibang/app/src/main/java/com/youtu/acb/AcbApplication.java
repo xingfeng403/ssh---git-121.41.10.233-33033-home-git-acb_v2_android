@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.youtu.acb.common.Settings;
+import com.youtu.acb.entity.TimeLineInfo;
 import com.youtu.acb.entity.UserInfo;
 import com.youtu.acb.util.DaoUtil;
 
@@ -32,6 +33,7 @@ public class AcbApplication extends Application {
     private Context self = this;
     private static UserInfo mUserInfo;
     public static boolean IS_DEBUG = false;
+    public static TimeLineInfo mInfo;
 
     // 启动的Activity集合
     public static List<Activity> mActivityList = new ArrayList<Activity>();

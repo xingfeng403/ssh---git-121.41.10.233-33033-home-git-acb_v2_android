@@ -495,27 +495,34 @@
                     android:textColor="#bfc1c6"
                     android:textSize="12dp" />
 
-                <TextView
-                    android:id="@+id/sd_bm2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:layout_marginTop="6dp"
                     android:layout_below="@+id/sd_bm1"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="6dp"
-                    android:text="如有虚假，欢迎举报"
-                    android:textColor="#bfc1c6"
-                    android:textSize="12dp" />
-
-
-                <TextView
-                    android:id="@+id/sd_bm3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/sd_bm2"
-                    android:layout_toRightOf="@+id/sd_bm2"
-                    android:text="  我要举报"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="12dp" />
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sd_bm2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="如有虚假，欢迎举报"
+                        android:textColor="#bfc1c6"
+                        android:textSize="12dp" />
+
+
+                    <TextView
+                        android:id="@+id/sd_bm3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  我要举报"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
 
             </RelativeLayout>
 

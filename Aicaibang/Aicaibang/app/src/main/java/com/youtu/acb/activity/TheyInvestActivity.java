@@ -43,6 +43,7 @@ public class TheyInvestActivity extends BaseActivity {
     private RecyclerView mRecycler;
     private TheyInvestAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private TextView noRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +60,15 @@ public class TheyInvestActivity extends BaseActivity {
             }
         });
 
+        noRecord = (TextView) findViewById(R.id.no_recorder);
         mRecycler = (RecyclerView) findViewById(R.id.they_invest_recycler);
         mLayoutManager = new LinearLayoutManager(TheyInvestActivity.this);
         mRecycler.setLayoutManager(mLayoutManager);
 
         mAdapter = new TheyInvestAdapter();
         mRecycler.setAdapter(mAdapter);
+
+        platID = getIntent().getStringExtra("platid");
 
         getList();
     }
@@ -73,7 +77,7 @@ public class TheyInvestActivity extends BaseActivity {
     private int mCurrentPage = 1;
     private boolean hasMore;
     private ArrayList<TheyInvestInfo> mInfos = new ArrayList<>();
-    private int platID;
+    private String platID;
 
     private void getList() {
         new Thread(new Runnable() {
@@ -106,6 +110,12 @@ public class TheyInvestActivity extends BaseActivity {
                             @Override
                             public void run() {
                                 mAdapter.notifyDataSetChanged();
+
+                                if (mInfos.size() > 0) {
+                                    noRecord.setVisibility(View.INVISIBLE);
+                                } else {
+                                    noRecord.setVisibility(View.VISIBLE);
+                                }
                             }
                         });
 

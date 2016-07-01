@@ -54,7 +54,7 @@ public class CheckCodeActivity extends BaseActivity {
 
         mPhoneNum = (TextView) findViewById(R.id.check_code_phone);
 
-        mPhoneStr = getIntent().getStringExtra("phone");
+        mPhoneStr = getIntent().getStringExtra("phone").replaceAll(" ", "");
         mPhoneNum.setText(mPhoneStr == null ? "" : mPhoneStr);
 
         mInput = (InputControlView) findViewById(R.id.input_code_input_code);

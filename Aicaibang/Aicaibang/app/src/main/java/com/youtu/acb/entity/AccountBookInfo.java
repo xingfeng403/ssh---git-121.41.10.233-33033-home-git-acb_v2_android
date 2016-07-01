@@ -11,7 +11,7 @@ public class AccountBookInfo {
     public int activity_id;
     public int activity_type;
     public String invest_date;
-    public int amount;
+    public String amount;
     public String expire_date;
     public int type;
     public int repay_id;

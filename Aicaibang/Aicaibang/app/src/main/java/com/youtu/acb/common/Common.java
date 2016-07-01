@@ -6,4 +6,5 @@ package com.youtu.acb.common;
 public class Common {
     public static String sharedPrefName = "AICAIBANG";
     public static String configName = "CONFIG";
+    public static String actIndicate = "INDICATE";
 }

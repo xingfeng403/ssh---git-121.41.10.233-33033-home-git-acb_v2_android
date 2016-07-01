@@ -172,7 +172,7 @@
                     android:background="@color/white_text"
                     android:lineSpacingExtra="3dp"
                     android:padding="18dp"
-                    android:text="lalalala\n\nlalala\n\nlalal"
+                    android:text=""
                     android:textColor="@color/black999"
                     android:textSize="14dp" />
 
@@ -237,7 +237,7 @@
                     android:background="@color/white_text"
                     android:lineSpacingExtra="3dp"
                     android:padding="18dp"
-                    android:text="lalalala\n\nlalala\n\nlalal"
+                    android:text=""
                     android:textColor="@color/black999"
                     android:textSize="14dp" />
 

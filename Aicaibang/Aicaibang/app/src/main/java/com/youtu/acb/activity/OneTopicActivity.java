@@ -5,11 +5,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,9 +29,12 @@ import com.youtu.acb.Views.CircleImageView;
 import com.youtu.acb.common.Settings;
 import com.youtu.acb.entity.ReplyDetail;
 import com.youtu.acb.entity.ReplyInfo;
+import com.youtu.acb.entity.TimeLineInfo;
 import com.youtu.acb.entity.UserInfo;
 import com.youtu.acb.util.CommonUtil;
 import com.youtu.acb.util.DaoUtil;
+import com.youtu.acb.util.DensityUtils;
+import com.youtu.acb.util.DialogUtil;
 import com.youtu.acb.util.OnSingleClickListener;
 import com.youtu.acb.util.ToastUtil;
 
@@ -64,6 +72,7 @@ public class OneTopicActivity extends BaseActivity {
     private String mContentStr;
     private String mToNick; // 回复回复时 对方的昵称
     private int mReplyPos; // 回复的位置
+    private int mGridViewItemWidth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +82,8 @@ public class OneTopicActivity extends BaseActivity {
         mTitleBar.getLayoutParams().height = Settings.TITLEBAR_HEIGHT;
 
         mReplyId = getIntent().getLongExtra("replyid", -1);
+
+        mGridViewItemWidth = (Settings.DISPLAY_WIDTH - DensityUtils.dp2px(OneTopicActivity.this, 62)) / 3;
 
         mBack = (FrameLayout) findViewById(R.id.one_topic_back);
         mBack.setOnClickListener(new OnSingleClickListener() {
@@ -149,6 +160,7 @@ public class OneTopicActivity extends BaseActivity {
                     Response response = client.newCall(request).execute();
                     JSONObject resultObj = JSON.parseObject(response.body().string());
                     if (resultObj.getIntValue("code") == 0) {
+                        // 下方评论列表
                         array = resultObj.getJSONArray("list");
                         int length = array.size();
                         if (length > 0) {
@@ -219,7 +231,6 @@ public class OneTopicActivity extends BaseActivity {
                                 ReplyDetail info = JSON.toJavaObject(detailArray.getJSONObject(i), ReplyDetail.class);
                                 copy.add(info);
                             }
-
 
                             ReplyDetail[] target = new ReplyDetail[copy.size()];
                             mList.get(position).detail = copy.toArray(target);
@@ -350,11 +361,122 @@ public class OneTopicActivity extends BaseActivity {
 
                 holder1.content.setOnClickListener(new ReplyClickListener(info.id + ""));
             } else if (holder instanceof VHHeader) {
+                VHHeader oneHeader = (VHHeader) holder;
+                if (mApplication.mInfo != null) {
+                    TimeLineInfo info = mApplication.mInfo;
+
+                    if (info.nick != null) {
+                        oneHeader.mName.setText(info.nick);
+                    } else {
+                        oneHeader.mName.setText("");
+                    }
+
+                    if (info.add_time != null) {
+                        oneHeader.mTime.setText(info.add_time);
+                    } else {
+                        oneHeader.mTime.setText("");
+                    }
+
+                    if (info.content != null) {
+                        oneHeader.mContent.setText(info.content);
+                    } else {
+                        oneHeader.mContent.setText("");
+                    }
+
+                    if (info.icon != null) {
+                        Glide.with(OneTopicActivity.this).load(info.icon).into(oneHeader.mAvatar);
+                    } else {
+                        oneHeader.mAvatar.setImageDrawable(null);
+                    }
+
+                    if (info.is_zambia == 0) {
+                        oneHeader.zan.setImageResource(R.drawable.timeline_weizan);
+                    } else {
+                        oneHeader.zan.setImageResource(R.drawable.timeline_yizan);
+                    }
+
+                    oneHeader.mContainer.removeAllViews();
+                    if (info.activity != null && info.activity.length > 0) {
+                        int length = info.activity.length;
+                        LayoutInflater inflater = getLayoutInflater();
+
+                        for (int i = 0; i < length; i++) {
+                            View divider = inflater.inflate(R.layout.view_white_divider, null);
+                            oneHeader.mContainer.addView(divider);
+                            View v = inflater.inflate(R.layout.lin_misson_cpl, null);
+                            TextView name = (TextView) v.findViewById(R.id.item_name);
+                            name.setText(info.activity[i] != null ? info.activity[i] : "");
+                            oneHeader.mContainer.addView(v);
+                        }
+                    }
+
+                    oneHeader.zanNum.setText(info.zambia + "");
+                    oneHeader.commentNum.setText(info.count + "");
+                    if (info.images != null && info.images.length > 0) {
+                        int length = info.images.length;
+                        ArrayList<String> imgs = new ArrayList();
+
+                        for (int i=0; i<length; i++) {
+                            imgs.add(info.images[i]);
+                        }
+                        oneHeader.gridview.setAdapter(new GridAdapter(imgs));
+                        oneHeader.gridview.setVisibility(View.VISIBLE);
+
+                    } else {
+                        oneHeader.gridview.setAdapter(null);
+                        oneHeader.gridview.setVisibility(View.GONE);
+                    }
+
+//                    oneHeader.head.setOnClickListener(new ComemtClickListener(position));
+//                    oneHeader.commentLayout.setOnClickListener(new ComemtClickListener(position));
+//                    oneHeader.mContent.setOnClickListener(new ComemtClickListener(position));
+                    oneHeader.shareLayout.setOnClickListener(new OnSingleClickListener() {
+                        @Override
+                        public void doOnClick(View v) {
+                            // 举报
+                        }
+                    });
+
+                    oneHeader.zanLayout.setOnClickListener(new ZanCLickListener(position));
+                }
 
 
             }
 
         }
+
+        class GridAdapter extends BaseAdapter {
+            ArrayList<String> addrs;
+
+            public GridAdapter(ArrayList<String> imgs) {
+                addrs = imgs;
+            }
+
+            @Override
+            public int getCount() {
+                return addrs.size();
+            }
+
+            @Override
+            public Object getItem(int i) {
+                return null;
+            }
+
+            @Override
+            public long getItemId(int i) {
+                return 0;
+            }
+
+            @Override
+            public View getView(int i, View view, ViewGroup viewGroup) {
+                ImageView img = new ImageView(OneTopicActivity.this);
+                img.setLayoutParams(new AbsListView.LayoutParams(mGridViewItemWidth, mGridViewItemWidth));
+                Glide.with(OneTopicActivity.this).load(addrs.get(i)).into(img);
+
+                return img;
+            }
+        }
+
 
         private int getPage(int pos) {
             ReplyInfo info = mList.get(pos);
@@ -396,10 +518,37 @@ public class OneTopicActivity extends BaseActivity {
         }
 
         class VHHeader extends RecyclerView.ViewHolder {
-            Button button;
+            public TextView mName;
+            public TextView mTime;
+            public CircleImageView mAvatar;
+            public TextView mContent;
+            public LinearLayout mContainer;
+            public TextView zanNum;
+            public TextView commentNum;
+            public GridView gridview;
+            public LinearLayout head;
+            public ImageView zan;
+            public LinearLayout commentLayout;
+            public LinearLayout shareLayout;
+            public LinearLayout zanLayout;
 
             public VHHeader(View itemView) {
                 super(itemView);
+
+                head = (LinearLayout) itemView.findViewById(R.id.item_tl_headpart);
+                mName = (TextView) itemView.findViewById(R.id.item_tl_name);
+                mTime = (TextView) itemView.findViewById(R.id.item_tl_time);
+                mContent = (TextView) itemView.findViewById(R.id.item_tl_content);
+                mAvatar = (CircleImageView) itemView.findViewById(R.id.item_tl_avatar);
+                mContainer = (LinearLayout) itemView.findViewById(R.id.item_tl_container);
+                zanNum = (TextView) itemView.findViewById(R.id.item_tl_zan_num);
+                commentNum = (TextView) itemView.findViewById(R.id.item_tl_comment_num);
+                gridview = (GridView) itemView.findViewById(R.id.item_tl_gridview);
+                zan = (ImageView) itemView.findViewById(R.id.item_tl_zan);
+                commentLayout = (LinearLayout) itemView.findViewById(R.id.item_tl_comment_layout);
+                shareLayout = (LinearLayout) itemView.findViewById(R.id.item_tl_share_layout);
+                zanLayout = (LinearLayout) itemView.findViewById(R.id.item_tl_zan_layout);
+
             }
         }
 
@@ -433,6 +582,73 @@ public class OneTopicActivity extends BaseActivity {
                 mReplyType = INPUT_TYPE_REPLY_TO_REPLY;
                 mContent.setHint("回复" + mToNick + ":");
             }
+        }
+
+        int clickPos;
+        class ZanCLickListener extends  OnSingleClickListener {
+
+            public ZanCLickListener(int position) {
+                clickPos = position;
+            }
+
+            @Override
+            public void doOnClick(View v) {
+                doZan(mList.get(clickPos).id + "");
+            }
+        }
+
+
+        private void doZan(final String topicId) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    OkHttpClient client = new OkHttpClient();
+
+                    FormBody body = new FormBody.Builder()
+                            .add("id", topicId)
+                            .build();
+
+                    Request request = new Request.Builder()
+                            .url(Settings.BASE_URL + "topicZambia")
+                            .addHeader("CLIENT", "android").addHeader("TOKEN", CommonUtil.getMobileUniqueId(mSelf))
+                            .addHeader("authorization", DaoUtil.getAuthorization(mSelf))
+                            .post(body)
+                            .build();
+                    try {
+                        Response response = client.newCall(request).execute();
+                        JSONObject resultObj = JSON.parseObject(response.body().string());
+                        if (resultObj.getIntValue("code") == 0) {
+                            if (resultObj.getIntValue("is_zambia") == 1) {
+//                                // zan guo
+//                                mList.get(clickPos).is_zambia = 1;
+                            } else {
+//                                mList.get(clickPos).is_zambia = 0;
+                            }
+
+//                            mList.get(clickPos).zambia = resultObj.getIntValue("zambia");
+
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mAdapter.notifyDataSetChanged();
+                                }
+                            });
+                        } else {
+                            msg = resultObj.getString("msg");
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(mSelf, msg, Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }).start();
         }
 
         /**

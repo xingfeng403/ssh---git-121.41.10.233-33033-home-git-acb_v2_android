@@ -16,6 +16,7 @@
         android:background="@color/titleblue">
 
         <LinearLayout
+            android:visibility="invisible"
             android:id="@+id/sign_detail_sign"
             android:layout_width="120dp"
             android:layout_height="120dp"

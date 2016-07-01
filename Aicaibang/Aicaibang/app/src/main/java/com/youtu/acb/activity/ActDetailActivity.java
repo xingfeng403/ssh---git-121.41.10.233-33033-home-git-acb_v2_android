@@ -164,7 +164,7 @@ public class ActDetailActivity extends BaseActivity {
                                     mDesc.setText(desc == null ? "" : desc);
 
                                     if (resultObj.getIntValue("is_docking") == 0) {
-                                        int indicate = getSharedPreferences(Common.sharedPrefName, MODE_PRIVATE).getInt("jiyibi", 0);
+                                        int indicate = getSharedPreferences(Common.actIndicate, MODE_PRIVATE).getInt("jiyibi", 0);
                                         if (indicate == 1) {
                                             mBtnJiyibi.setVisibility(View.VISIBLE);
                                         } else {

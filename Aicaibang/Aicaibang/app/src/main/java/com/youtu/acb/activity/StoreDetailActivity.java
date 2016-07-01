@@ -116,10 +116,24 @@ public class StoreDetailActivity extends BaseActivity {
 
 
         mTimeLine = (LinearLayout) findViewById(R.id.go_to_timeline);
-        mTimeLine.setOnClickListener(new DirectListener(StoreDetailActivity.this, TimeLineActivity.class));
+        mTimeLine.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void doOnClick(View v) {
+                if (mStoreId != null) {
+                    startActivity(new Intent(StoreDetailActivity.this, TimeLineActivity.class).putExtra("merid", mStoreId));
+                }
+            }
+        });
 
         mWhoBuys = (LinearLayout) findViewById(R.id.go_to_who_buy);
-        mWhoBuys.setOnClickListener(new DirectListener(StoreDetailActivity.this, TheyInvestActivity.class));
+        mWhoBuys.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void doOnClick(View v) {
+                if (mStoreId != null) {
+                    startActivity(new Intent(StoreDetailActivity.this, TheyInvestActivity.class).putExtra("platid", mStoreId));
+                }
+            }
+        });
 
         mBack.setOnClickListener(new OnSingleClickListener() {
             @Override
