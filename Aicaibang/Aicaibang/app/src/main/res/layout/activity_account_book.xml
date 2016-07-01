@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5f5f5"
+    tools:context="com.youtu.acb.activity.AccountBookActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/account_book_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/titleblue">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/shape_white_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/account_book_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text=""
+                android:textColor="#fe6a67"
+                android:textSize="42dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="待收本金(元)"
+                android:textColor="#61636b"
+                android:textSize="17dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/account_book_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"></android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/account_book_note"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#7690e3"
+        android:text="记一笔"
+        android:textColor="@color/white_text"
+        android:textSize="17dp" />
+
+
+</LinearLayout>

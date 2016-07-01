@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mc_root_view"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/item_main_content_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.youtu.acb.Views.RoundCornerImageView
+            android:id="@+id/main_content_icon"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginLeft="16dp" />
+
+        <TextView
+            android:id="@+id/main_content_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:text="恰内助"
+            android:textColor="@color/black666"
+            android:textSize="13dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更多"
+            android:textColor="@color/black999"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:src="@drawable/arrow_right_grey"
+            android:layout_width="5dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="16dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:id="@+id/main_content_acts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fafbfc"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+</LinearLayout>

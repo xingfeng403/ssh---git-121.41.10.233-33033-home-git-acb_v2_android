@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#edeef2"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/registe_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/titleblue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="注册"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+
+        <FrameLayout
+            android:id="@+id/registe_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow_back_white" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/registe_login"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="登录"
+                android:textColor="@color/white_text"
+                android:textSize="15dp" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="10dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="47dp"
+        android:gravity="center_vertical"
+        android:background="@color/white_text" >
+        
+        <ImageView
+            android:src="@drawable/reg_phone"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="11dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp" />
+
+        <com.youtu.acb.Views.InputControlView
+            android:id="@+id/registe_input_phonenum"
+            android:layout_width="match_parent"
+            app:type="1"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp" />
+
+    </LinearLayout>
+
+
+    <View style="@style/DividerGrey" />
+
+    <View style="@style/DividerGrey"
+        android:layout_marginTop="10dp"/>
+
+
+    <LinearLayout
+        android:minHeight="47dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:src="@drawable/reg_img"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="11dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp" />
+
+        <com.youtu.acb.Views.InputControlView
+            android:id="@+id/registe_input_code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:background="#f3f4f7" />
+
+        <ImageView
+            android:id="@+id/registe_img_code"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <Button
+        android:enabled="false"
+        android:id="@+id/registe_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sel_blue_btn"
+        android:text="@string/next_step"
+        android:textColor="@color/white_text"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/registe_protocol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:text=""
+        android:textColor="#9d9fa3"
+        android:textSize="12dp" />
+
+</LinearLayout>

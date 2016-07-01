@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mb_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bbbbb"
+                android:textColor="#94969d"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/mb_item_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="bbbbb"
+                android:textColor="#c6c7cc"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        `i
+
+        <TextView
+            android:id="@+id/mb_item_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+500"
+            android:textColor="#fe9c9a"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/mb_item_divider_item_divider"
+        style="@style/DividerGrey"
+        android:layout_marginLeft="16dp" />
+
+</LinearLayout>

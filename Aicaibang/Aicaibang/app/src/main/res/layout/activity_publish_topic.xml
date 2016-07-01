@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edeef2"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.PublishTopicActivity">
+
+    <RelativeLayout
+        android:id="@+id/publish_topic_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleblue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="投友圈"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+
+        <FrameLayout
+            android:id="@+id/publish_topic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow_back_white" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/publish_topic_sends"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="发布"
+                android:textColor="@android:color/white"
+                android:textSize="15dp" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pt_rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="15dp">
+
+        <FrameLayout
+            android:id="@+id/pt_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="130dp">
+
+            <EditText
+                android:id="@+id/pt_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="说点什么"
+                android:lineSpacingExtra="5dp"
+                android:textColor="@color/black333"
+                android:textColorHint="#e1e2e4"
+                android:textSize="15dp" />
+        </FrameLayout>
+
+        <GridView
+            android:id="@+id/pt_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pt_edit_layout"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="15dp"
+            android:cacheColorHint="@android:color/transparent"
+            android:horizontalSpacing="15dp"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="15dp" />
+
+    </RelativeLayout>
+
+    <View style="@style/DividerGrey" />
+
+</LinearLayout>

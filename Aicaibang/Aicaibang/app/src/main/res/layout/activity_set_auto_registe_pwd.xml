@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f6"
+    android:orientation="vertical" >
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/set_apwd_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="15dp" />
+
+    <com.youtu.acb.Views.InputControlView
+        android:id="@+id/set_apwd_input_once"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
+    <View style="@style/DividerGrey" />
+
+
+    <com.youtu.acb.Views.InputControlView
+        android:id="@+id/set_apwd_input_twice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
+    <View style="@style/DividerGrey" />
+
+    <Button
+        android:id="@+id/set_apwd_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_button_grey"
+        android:text="@string/submit"
+        android:textColor="@color/grey_b7"
+        android:textSize="14dp" />
+
+</LinearLayout>

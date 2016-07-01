@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第一天"
+        android:textColor="#858eab"
+        android:textSize="12dp" />
+
+    <RelativeLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp">
+
+        <View
+            android:id="@+id/line_up"
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ball"
+            android:layout_centerHorizontal="true"
+            android:background="#eeeff4" />
+
+        <ImageView
+            android:id="@+id/ball"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/shape_signed_ball" />
+
+        <View
+            android:id="@+id/line_down"
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ball"
+            android:layout_centerHorizontal="true"
+            android:background="#eeeff4" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/shape_signed_round"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:gravity="center"
+        android:text="签到已获得50金币"
+        android:textColor="#858eab"
+        android:textSize="14dp" />
+
+    <ImageView
+        android:id="@+id/item_sel"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginLeft="8dp"
+        android:src="@drawable/task_success" />
+
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f5f5f5"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.CheckCodeActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/check_code_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.youtu.acb.Views.Titlebar>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="验证码已发送至手机 "
+            android:textColor="#9ea0a4"
+            android:textSize="14dp" />
+
+
+        <TextView
+            android:id="@+id/check_code_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#7a7b83"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:minHeight="47dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/checkcode" />
+
+        <com.youtu.acb.Views.InputControlView
+            android:id="@+id/input_code_input_code"
+            android:layout_marginLeft="16dp"
+            app:type="4"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/check_code_getcode"
+            android:layout_width="88dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/shape_grey_round"
+            android:text="获取验证码"
+            android:textColor="#e6e8ee"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+
+    <Button
+        android:id="@+id/check_code_nextstep"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/next_step"
+        android:textColor="@color/white_text"
+        android:background="@drawable/sel_blue_btn"
+        android:textSize="17dp" />
+
+
+</LinearLayout>

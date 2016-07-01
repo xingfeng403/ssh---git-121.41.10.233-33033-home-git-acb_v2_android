@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edeef2"
+    android:orientation="vertical">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/set_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/set_login_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="活动推送"
+            android:textColor="@color/black333"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:src="@drawable/tuisong_btn"
+            android:layout_width="50dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/set_auto_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="关于我们"
+                android:textColor="@color/black333"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="9dp"
+                android:src="@drawable/arrow_right_grey" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/DividerGrey"
+            android:layout_marginLeft="18dp" />
+
+        <LinearLayout
+            android:id="@+id/set_plat_acc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="帮助中心"
+                android:textColor="@color/black333"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="9dp"
+                android:src="@drawable/arrow_right_grey" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/DividerGrey"
+            android:layout_marginLeft="18dp" />
+
+
+        <LinearLayout
+            android:id="@+id/set_plat_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="清理缓存"
+                android:textColor="@color/black333"
+                android:textSize="16dp" />
+
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="9dp"
+                android:src="@drawable/arrow_right_grey" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+</LinearLayout>

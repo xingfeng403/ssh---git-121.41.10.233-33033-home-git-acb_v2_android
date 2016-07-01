@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.GoldExchangeActivity">
+
+    <RelativeLayout
+        android:id="@+id/gold_exchange_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/titleblue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="金币兑换"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+
+        <FrameLayout
+            android:id="@+id/gold_exchange_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow_back_white" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前金币数量: "
+            android:textColor="#9ea0a4"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/gold_exchange_own"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="1123"
+            android:textColor="#fa9894"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="枚"
+            android:textColor="#9ea0a4"
+            android:textSize="14dp" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" />
+
+        <TextView
+            android:id="@+id/gold_exchange_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="全部兑换"
+            android:textColor="#95a9ea"
+            android:textSize="15dp" />
+
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="47dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="兑换数量"
+            android:textColor="@color/black333"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:background="#e8eaf0" />
+
+        <EditText
+            android:id="@+id/gold_exchange_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1.0"
+            android:inputType="phone"
+            android:digits="1234567890"
+            android:background="@null"
+            android:hint="100金币=1元"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="14dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="16dp"
+            android:text="x 100 金币"
+            android:textColor="@color/black333"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <TextView
+        android:id="@+id/gold_exchange_can"
+        android:layout_gravity="right"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black333"
+        android:textSize="14dp"
+        android:text="可兑换现金: 0元"/>
+
+    <Button
+        android:id="@+id/gold_exchange_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/sel_blue_btn"
+        android:enabled="false"
+        android:text="兑现"
+        android:textColor="#d2d9f6"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

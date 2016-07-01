@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white_text"
+        android:textSize="17dp" />
+
+    <LinearLayout
+        android:id="@+id/title_left_part"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/title_left_img"
+            android:layout_width="10dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/arrow_back_white" />
+
+        <!--<TextView-->
+            <!--android:id="@+id/title_left_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:text="返回"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="15dp" />-->
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/title_right_part"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:id="@+id/title_right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:textColor="@color/white_text" />
+
+    </RelativeLayout>
+
+    <!--<View-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--style="@style/DividerGrey" />-->
+
+</RelativeLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white_text"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:gravity="center_vertical"
+        android:minHeight="42dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_ab_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#5b5c65"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_marginRight="5dp"
+            android:id="@+id/item_ab_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#d6d7da"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_marginRight="15dp"
+            android:id="@+id/item_ab_icon"
+            android:layout_width="12dp"
+            android:layout_height="12dp" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginLeft="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:minHeight="60dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="平台"
+                android:textColor="#c0c1c7"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/item_ab_plat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text=""
+                android:textColor="#595959"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="本金"
+                android:textColor="#c0c1c7"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/item_ab_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text=""
+                android:textColor="#fe6a67"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="right|center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="还款方式"
+                android:textColor="#c0c1c7"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/item_ab_repay_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text=""
+                android:textColor="#595959"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fafbfc"
+        android:gravity="center_vertical"
+        android:minHeight="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_ab_start_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1.0"
+            android:text=""
+            android:textColor="#c5c6cb"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/item_ab_dead_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text=""
+            android:textColor="#c5c6cb"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+
+    <View style="@style/DividerGrey" />
+</LinearLayout>

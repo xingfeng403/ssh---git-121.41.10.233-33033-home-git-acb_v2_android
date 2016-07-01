@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    tools:context="com.youtu.acb.activity.WxPayActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/wx_pay_common_ques"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/wx_pay_titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/titleblue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="微信支付"
+                android:textColor="@android:color/white"
+                android:textSize="16dp" />
+
+
+            <FrameLayout
+                android:id="@+id/wx_pay_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/arrow_back_white" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/wx_pay_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:lineSpacingExtra="10dp"
+            android:padding="16dp"
+            android:text="lalalalala"
+            android:textColor="#aeb0b3"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/goto_bind_now"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_blue_bg"
+            android:text="马上去绑定"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/wx_pay_common_ques"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="常见问题"
+        android:textColor="#9faee7"
+        android:textSize="13dp" />
+
+</RelativeLayout>

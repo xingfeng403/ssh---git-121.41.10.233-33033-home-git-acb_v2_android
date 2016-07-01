@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f6"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.LoginActivity">
+
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/login_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/reg_phone" />
+
+        <com.youtu.acb.Views.InputControlView
+            android:id="@+id/login_input_phonenum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal"
+            app:type="1" />
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/login_pwd" />
+
+        <com.youtu.acb.Views.InputControlView
+            android:id="@+id/login_input_pwd"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            app:type="2" />
+
+        <TextView
+            android:id="@+id/login_forget_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="18dp"
+            android:text="@string/forget_pwd"
+            android:textColor="#9a96e5"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sel_blue_btn"
+        android:text="@string/login_title"
+        android:textColor="@color/white_text"
+        android:textSize="17dp" />
+
+</LinearLayout>

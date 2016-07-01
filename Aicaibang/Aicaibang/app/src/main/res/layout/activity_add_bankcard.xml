@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.AddBankcardActivity">
+
+    <RelativeLayout
+        android:id="@+id/add_card_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/titleblue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="添加银行卡"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+
+        <FrameLayout
+            android:id="@+id/add_card_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow_back_white" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:text="请绑定持卡人本人的银行卡"
+        android:textColor="#9ea0a4"
+        android:textSize="13dp" />
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="47dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="持卡人"
+            android:textColor="@color/black333"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:background="#e8eaf0" />
+
+        <EditText
+            android:id="@+id/add_card_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:hint="持卡人姓名"
+            android:background="@null"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="14dp" />
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <View
+            style="@style/DividerGrey"
+            android:layout_marginLeft="15dp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="47dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="卡号"
+            android:textColor="@color/black333"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:background="#e8eaf0" />
+
+        <EditText
+            android:id="@+id/add_card_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:background="@null"
+            android:hint="银行卡号"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <Button
+        android:id="@+id/add_card_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/sel_blue_btn"
+        android:enabled="false"
+        android:text="@string/submit"
+        android:textColor="#d2d9f6"
+        android:textSize="16dp" />
+
+</LinearLayout>

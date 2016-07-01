@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f6"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.LoginActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/find_pwd_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:minHeight="47dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/reg_phone" />
+
+
+        <com.youtu.acb.Views.InputControlView
+            android:id="@+id/find_pwd_input_phonenum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="16dp"
+            app:type="1" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="10dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:minHeight="47dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/checkcode" />
+
+        <com.youtu.acb.Views.InputControlView
+            android:id="@+id/find_pwd_input_code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            app:type="4" />
+
+        <Button
+            android:id="@+id/find_pwd_get_code"
+            android:layout_width="88dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_grey_round"
+            android:text="@string/get_check_code"
+            android:textColor="@color/grey_b7"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <Button
+        android:id="@+id/find_pwd_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sel_blue_btn"
+        android:text="@string/next_step"
+        android:textColor="@color/white_text"
+        android:textSize="14dp" />
+
+</LinearLayout>

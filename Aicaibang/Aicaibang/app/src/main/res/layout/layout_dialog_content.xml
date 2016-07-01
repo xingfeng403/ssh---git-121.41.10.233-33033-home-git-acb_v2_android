@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/jiyibi_icon" />
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/jiyibi_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="12dp"
+        android:text="由于该平台未与爱财帮进行数据对接，所以需要你在完成活动之后，人工记录你的投资记录。爱财帮会根据记录与平台进行结算，结算完成后，"
+        android:textColor="#9c9da1"
+        android:textSize="13dp" />
+
+    <Button
+        android:id="@+id/jiyibi_note_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="36dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_btn_iknow"
+        android:minWidth="200dp"
+        android:text="我知道了"
+        android:textColor="#94a8ea"
+        android:textSize="15dp" />
+
+</LinearLayout>

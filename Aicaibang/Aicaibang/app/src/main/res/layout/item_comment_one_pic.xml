@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/item_cop_headpart"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.youtu.acb.Views.CircleImageView
+            android:id="@+id/item_cop_avatar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="16dp"
+            app:border_width="2px" />
+
+        <TextView
+            android:id="@+id/item_cop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="乐纯"
+            android:textColor="#aeafb2"
+            android:textSize="15dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" />
+
+        <TextView
+            android:id="@+id/item_cop_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text="刚刚"
+            android:textColor="#d5d6da"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_cop_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:lineSpacingExtra="10dp"
+        android:text="猴塞雷，投了1000，拿了50块钱的返现，还有平台36元红包，加收益都有100多了，哈哈哈，爽歪歪！"
+        android:textColor="#8d8e94"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:id="@+id/item_cop_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:background="#f7f8fa"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="8dp"
+        android:id="@+id/item_cop_load_more"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/titleblue"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#edeef2" />
+
+</LinearLayout>

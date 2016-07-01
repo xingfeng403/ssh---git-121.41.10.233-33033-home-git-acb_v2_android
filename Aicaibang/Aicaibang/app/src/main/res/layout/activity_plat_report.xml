@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.PlatReportActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/palt_rep_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.youtu.acb.Views.Titlebar>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="46dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black333"
+            android:textSize="14dp"
+            android:text="平台名称"/>
+
+        <View
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="2px"
+            android:layout_height="14dp"
+            android:background="#e8eaf0" />
+
+        <TextView
+            android:id="@+id/plat_rep_name"
+            android:textColor="@color/grey_text"
+            android:textSize="14dp"
+            android:text="你要举报的平台名称"
+            android:maxLength="50"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/DividerGrey" />
+
+    <View
+        android:layout_marginTop="7dp"
+        style="@style/DividerGrey" />
+
+    <FrameLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="275dp">
+
+        <EditText
+            android:id="@+id/plat_rep_content"
+            android:textColor="@color/black333"
+            android:textSize="14dp"
+            android:hint="请输入你要举报的信息"
+            android:maxLength="255"
+            android:background="@null"
+            android:textColorHint="@color/grey_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="8dp" />
+
+    </FrameLayout>
+
+    <View
+        style="@style/DividerGrey"/>
+
+    <Button
+        android:id="@+id/plat_rep_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/sel_blue_btn"
+        android:text="@string/submit"
+        android:textColor="@color/white_text"
+        android:textSize="14dp" />
+
+</LinearLayout>

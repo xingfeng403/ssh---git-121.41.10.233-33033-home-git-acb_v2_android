@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.youtu.acb.Views.ImageCycle.ImageCycleView
+        android:id="@+id/main_image_cycle"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" />
+
+    <View
+        style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="18dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/main_icon" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:background="#f3f4f7" />
+
+        <TextView
+            android:layout_width="32dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/shape_blue_rect"
+            android:gravity="center"
+            android:text="公告"
+            android:textColor="#b3c1f0"
+            android:textSize="12dp" />
+
+        <com.youtu.acb.Views.TextViewAd
+            android:id="@+id/main_tv_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="11dp"
+            android:text=""
+            android:textColor="#747781"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+</LinearLayout>

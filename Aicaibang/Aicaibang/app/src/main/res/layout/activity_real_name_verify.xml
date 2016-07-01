@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f6"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.RealNameVerifyActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/real_name_v_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="真实姓名"
+            android:textColor="@color/black333"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="14dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:background="#e8eaef" />
+
+        <EditText
+            android:id="@+id/real_name_v_input_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:background="@null"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="证件号码"
+            android:textColor="@color/black333"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="14dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:background="#e8eaef" />
+
+        <EditText
+            android:id="@+id/real_name_v_input_idc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:background="@null"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <Button
+        android:id="@+id/real_name_v_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sel_blue_btn"
+        android:text="@string/start_verify"
+        android:textColor="@color/white_text"
+        android:textSize="14dp" />
+
+</LinearLayout>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/help_center_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:id="@+id/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="反馈建议"
+            android:textColor="@color/black333"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:src="@drawable/arrow_right_grey"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp" />
+
+    </LinearLayout>
+
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:id="@+id/usual_ques"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="常见问题"
+            android:textColor="@color/black333"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:src="@drawable/arrow_right_grey"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp" />
+
+    </LinearLayout>
+
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:id="@+id/plat_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="平台举报"
+            android:textColor="@color/black333"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:src="@drawable/arrow_right_grey"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp" />
+
+    </LinearLayout>
+
+
+    <View style="@style/DividerGrey" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:id="@+id/hotline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="客服热线"
+            android:textColor="@color/black333"
+            android:textSize="16dp" />
+
+        <TextView
+            android:text="0571-19929293"
+            android:textSize="14dp"
+            android:textColor="@color/grey_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="18dp" />
+
+    </LinearLayout>
+
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:id="@+id/wx_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="微信客户端"
+            android:textColor="@color/black333"
+            android:textSize="16dp" />
+
+        <TextView
+            android:text="优格"
+            android:textSize="14dp"
+            android:textColor="@color/grey_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="18dp" />
+
+    </LinearLayout>
+
+
+    <View style="@style/DividerGrey" />
+
+    <LinearLayout
+        android:id="@+id/formal_qq_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="官方qq群"
+            android:textColor="@color/black333"
+            android:textSize="16dp" />
+
+        <TextView
+            android:text="551382868"
+            android:textSize="14dp"
+            android:textColor="@color/grey_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="18dp" />
+
+    </LinearLayout>
+
+
+    <View style="@style/DividerGrey" />
+
+
+
+
+</LinearLayout>

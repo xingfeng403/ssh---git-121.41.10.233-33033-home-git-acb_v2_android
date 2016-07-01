@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/grey_f6"
+    tools:context="com.youtu.acb.activity.PersonalInfoActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/pinfo_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/avatar_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_weight="1.0"
+                android:text="@string/avatar"
+                android:textColor="@color/black333"
+                android:textSize="17dp" />
+
+            <com.youtu.acb.Views.CircleImageView
+                app:border_width="1px"
+                app:border_color="@android:color/white"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/pinfo_avatar" />
+
+            <ImageView
+                android:src="@drawable/arrow_right_grey"
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="13dp" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/DividerGrey"
+            android:layout_marginLeft="18dp" />
+
+        <LinearLayout
+            android:id="@+id/nick_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_weight="1.0"
+                android:text="@string/nick"
+                android:textColor="@color/black333"
+                android:textSize="17dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="只爱喝可乐"
+                android:textColor="@color/grey_a5a4a6"
+                android:textSize="13dp"
+                android:id="@+id/pinfo_nick" />
+
+            <ImageView
+                android:src="@drawable/arrow_right_grey"
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="13dp" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/DividerGrey"
+            android:layout_marginLeft="18dp" />
+
+        <LinearLayout
+            android:id="@+id/account_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_weight="1.0"
+                android:text="@string/account"
+                android:textColor="@color/black333"
+                android:textSize="17dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="137****2083"
+                android:textColor="@color/grey_a5a4a6"
+                android:textSize="13dp"
+                android:id="@+id/pinfo_acc" />
+
+            <ImageView
+                android:src="@drawable/arrow_right_grey"
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="13dp" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/DividerGrey"
+            android:layout_marginLeft="18dp" />
+
+
+        <LinearLayout
+            android:id="@+id/account_type_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_weight="1.0"
+                android:text="@string/account_type"
+                android:textColor="@color/black333"
+                android:textSize="17dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="普通会员"
+                android:textColor="@color/grey_a5a4a6"
+                android:textSize="13dp"
+                android:id="@+id/pinfo_acc_type" />
+
+            <ImageView
+                android:src="@drawable/arrow_right_grey"
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="13dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:id="@+id/login_pwd_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="@string/login_pwd"
+            android:textColor="@color/black333"
+            android:textSize="17dp" />
+
+
+        <ImageView
+            android:src="@drawable/arrow_right_grey"
+            android:layout_width="8dp"
+            android:layout_height="13dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="13dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:id="@+id/real_name_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1.0"
+            android:text="@string/real_name_verify"
+            android:textColor="@color/black333"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*版本"
+            android:textColor="@color/grey_a5a4a6"
+            android:textSize="13dp"
+            android:id="@+id/pinfo_realname" />
+
+        <ImageView
+            android:src="@drawable/arrow_right_grey"
+            android:layout_width="8dp"
+            android:layout_height="13dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="13dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0" />
+
+
+    <TextView
+        android:id="@+id/logout_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/shape_white_bg"
+        android:gravity="center"
+        android:text="@string/logout"
+        android:textColor="#fe7d76"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

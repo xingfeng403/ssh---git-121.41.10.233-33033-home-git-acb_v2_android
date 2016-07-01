@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f6"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.RealNameVerifyActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/modi_nick_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_marginTop="15dp" />
+
+    <!--<com.youtu.acb.Views.InputControlView-->
+        <!--android:id="@+id/modi_nick_name"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginRight="16dp" />-->
+
+    <LinearLayout
+        android:minHeight="50dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:text="@string/nick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="@color/black333"
+            android:layout_marginLeft="16dp" />
+
+        <View
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="2px"
+            android:layout_height="14dp"
+            android:background="#e8eaef" />
+
+        <EditText
+            android:background="@null"
+            android:id="@+id/modi_nick_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:layout_marginRight="12dp"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View style="@style/DividerGrey" />
+
+    <Button
+        android:id="@+id/modi_nick_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sel_blue_btn"
+        android:text="保存"
+        android:textColor="@color/white_text"
+        android:textSize="14dp" />
+
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.RecommendAwardActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/recommend_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.youtu.acb.Views.Titlebar>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/titleblue">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/shape_white_bg">
+
+            <Button
+                android:id="@+id/rec_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:background="@drawable/shape_red_bg"
+                android:text="邀请"
+                android:textColor="@color/white_text"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/rec_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/danwei"
+                android:layout_centerHorizontal="true"
+                android:gravity="bottom"
+                android:layout_marginBottom="7dp"
+                android:paddingBottom="0dp"
+                android:text="0"
+                android:textColor="#fe6a67"
+                android:textSize="42dp" />
+
+            <TextView
+                android:layout_marginBottom="22dp"
+                android:layout_above="@+id/rec_continue"
+                android:id="@+id/danwei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="累计奖励金币(枚)"
+                android:textColor="#6d6e76"
+                android:textSize="17dp" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_weight="1.0"
+            android:background="#e8e6e5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最近邀请"
+            android:textColor="#bbbbc2"
+            android:textSize="15dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_weight="1.0"
+            android:background="#e8e6e5" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rec_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/rec_look_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:minHeight="50dp"
+        android:text="查看所有好友"
+        android:visibility="invisible"
+        android:textColor="#92a6e7"
+        android:textSize="14dp" />
+
+
+</LinearLayout>

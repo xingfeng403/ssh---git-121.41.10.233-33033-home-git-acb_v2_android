@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Aicaibang</string>
+    <string name="err_msg">程序异常，请重启后再试</string>
+    <string name="net_err">网络异常，请检查网络后再试</string>
+    <string name="confirm">确定</string>
+
+    <string name="pinfo_title">个人信息</string>
+    <string name="real_name_v_title">实名认证</string>
+    <string name="modi_nick_title">修改昵称</string>
+    <string name="login_title">登录</string>
+    <string name="find_pwd_title">找回密码</string>
+    <string name="input_code_title">输入验证码</string>
+    <string name="set_pwd_title">设置密码</string>
+    <string name="modi_lpwd_title">修改登录密码</string>
+    <string name="set_auto_pwd_title">设置自动注册密码</string>
+    <string name="set_title">设置</string>
+
+
+    <string name="hint_name">请输入你的姓名</string>
+    <string name="hint_idc">请输入你的身份证号码</string>
+    <string name="hint_phonenum">手机号码</string>
+    <string name="hint_pwd">密码</string>
+    <string name="hint_nick_name">请输入你的昵称</string>
+    <string name="hint_phone_num">请输入你的手机号码</string>
+    <string name="hint_check_code">手机验证码</string>
+    <string name="hint_img_code">图形验证码</string>
+    <string name="hint_pwd_once">请输入你的密码</string>
+    <string name="hint_pwd_twice">再次确认你的密码</string>
+    <string name="hint_old_pwd">旧密码</string>
+    <string name="hint_new_pwd">新密码</string>
+    <string name="hint_confirm_pwd">确认新密码</string>
+    <string name="hint_confirm_pwd1">确认密码</string>
+
+
+    <string name="avatar">头像</string>
+    <string name="nick">昵称</string>
+    <string name="account">账号</string>
+    <string name="account_type">账号类型</string>
+    <string name="real_name_verify">实名认证</string>
+    <string name="logout">退出登录</string>
+    <string name="start_verify">开始认证</string>
+    <string name="forget_pwd">忘记密码?</string>
+    <string name="registe">注册</string>
+    <string name="next_step">下一步</string>
+    <string name="get_check_code">获取验证码</string>
+    <string name="submit">提交</string>
+    <string name="login_pwd">登录密码</string>
+    <string name="auto_reg">自动注册</string>
+    <string name="plat_acc">平台登录账户</string>
+    <string name="plat_pwd">平台登录密码</string>
+
+</resources>

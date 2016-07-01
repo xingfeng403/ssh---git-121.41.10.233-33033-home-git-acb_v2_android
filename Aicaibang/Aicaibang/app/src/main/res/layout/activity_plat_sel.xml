@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.PlatSelActivity">
+
+    <com.youtu.acb.Views.Titlebar
+        android:id="@+id/plat_sel_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </com.youtu.acb.Views.Titlebar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_text"
+        android:gravity="center_vertical"
+        android:minHeight="46dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="平台名称"
+            android:textColor="@color/black333"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="14dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:background="#e8eaf0" />
+
+        <EditText
+            android:id="@+id/plat_rep_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="其他平台可输入"
+            android:maxLength="50"
+            android:singleLine="true"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/grey_text"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/plat_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_text"
+        android:cacheColorHint="#00000000"
+        android:divider="#dadde6"
+        android:dividerHeight="1px"
+        android:listSelector="#00000000"
+        android:scrollbars="none" />
+
+</LinearLayout>

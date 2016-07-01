@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white_text"
+    android:layout_height="60dp">
+
+    <TextView
+        android:id="@+id/msg_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:text=""
+        android:textColor="#6c6d75"
+        android:textSize="15dp" />
+
+
+    <TextView
+        android:id="@+id/msg_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/msg_name"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textColor="#c8c9ce"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/msg_new_tag"
+        android:layout_width="25dp"
+        android:layout_height="10dp"
+        android:layout_alignTop="@+id/msg_name"
+        android:layout_marginLeft="6dp"
+        android:layout_toRightOf="@+id/msg_name"
+        android:background="@drawable/shape_red_tag"
+        android:gravity="center"
+        android:text="NEW"
+        android:textColor="@color/white_text"
+        android:textSize="7dp" />
+
+    <ImageView
+        android:layout_width="5dp"
+        android:layout_height="9dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/arrow_right_grey" />
+
+</RelativeLayout>

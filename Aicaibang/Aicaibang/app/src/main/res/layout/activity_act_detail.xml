@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.youtu.acb.activity.ActDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/act_detail_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#607ee0">
+
+        <ImageView
+            android:id="@+id/act_detail_back"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/arrow_back_white" />
+
+        <TextView
+            android:singleLine="true"
+            android:maxLength="10"
+            android:ellipsize="end"
+            android:id="@+id/act_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+
+        <ImageView
+            android:id="@+id/act_detail_share"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@null" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:fadeScrollbars="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="50dp">
+
+                <ImageView
+                    android:id="@+id/act_detail_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:background="@drawable/act_bg" />
+
+                <View style="@style/DividerGrey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#e2e6f4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="投资额(元)"
+                            android:textColor="#b4bdd9"
+                            android:textSize="13dp" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="期限(天)"
+                            android:textColor="#b4bdd9"
+                            android:textSize="13dp" />
+
+                    </FrameLayout>
+
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="奖励(金)"
+                            android:textColor="#b4bdd9"
+                            android:textSize="13dp" />
+
+                    </FrameLayout>
+
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="保证金(元)"
+                            android:textColor="#b4bdd9"
+                            android:textSize="13dp" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/act_detail_item_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="17dp"
+                    android:text="活动规则"
+                    android:textColor="@color/black333"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+                <View style="@style/DividerGrey" />
+
+                <TextView
+                    android:id="@+id/act_detail_rule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_text"
+                    android:lineSpacingExtra="3dp"
+                    android:padding="18dp"
+                    android:text="lalalala\n\nlalala\n\nlalal"
+                    android:textColor="@color/black999"
+                    android:textSize="14dp" />
+
+                <View style="@style/DividerGrey" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:minHeight="250dp"
+                    android:paddingLeft="17dp"
+                    android:text="活动攻略"
+                    android:textColor="@color/black333"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+                <View style="@style/DividerGrey" />
+
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="250dp"
+                    android:background="@color/white_text">
+
+                    <LinearLayout
+                        android:id="@+id/act_detail_pic_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="18dp">
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <View style="@style/DividerGrey" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="17dp"
+                    android:text="重要说明"
+                    android:textColor="@color/black333"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+                <View style="@style/DividerGrey" />
+
+                <TextView
+                    android:id="@+id/act_detail_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_text"
+                    android:lineSpacingExtra="3dp"
+                    android:padding="18dp"
+                    android:text="lalalala\n\nlalala\n\nlalal"
+                    android:textColor="@color/black999"
+                    android:textSize="14dp" />
+
+                <View style="@style/DividerGrey" />
+
+
+                <TextView
+                    android:id="@+id/act_detail_declaim"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="8dp"
+                    android:text="活动奖励均有爱财客平台提供，与设备生产商无关."
+                    android:textColor="@color/black999"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <Button
+            android:id="@+id/act_float_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/sel_blue_rect_btn"
+            android:text="立即参与"
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
+
+
+        <ImageView
+            android:id="@+id/ad_jiyibi_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/act_float_button"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/jiyibi_btn"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+</LinearLayout>
